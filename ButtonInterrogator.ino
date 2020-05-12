@@ -82,14 +82,14 @@ void controlLed(BLEDevice peripheral)
   BLECharacteristic ledCharacteristic = peripheral.characteristic("19b10011-e8f2-537e-4f6c-d104768a1214");
   BLECharacteristic buttonCharacteristic = peripheral.characteristic("19B10012-E8F2-537E-4F6C-D104768A1214");
 
-  if (!switchCharacteristic)
+  if (!buttonCharacteristic)
   {
     Serial.println("Peripheral does not have a temperature characteristic!");
     peripheral.disconnect();
     return;
   } 
   
-  else if (!switchCharacteristic.canRead()) 
+  else if (!buttonCharacteristic.canRead()) 
   {
     Serial.println("Peripheral does not have a writable temp characteristic!");
     peripheral.disconnect();
